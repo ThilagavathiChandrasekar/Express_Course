@@ -1,4 +1,6 @@
 // npm run devStart --- this code is run the server
+//Open developer Tools-Shortcut (Ctrl + Shift + i)
+
 
 const { response } = require("express")
 
@@ -113,20 +115,63 @@ const { response } = require("express")
 // Handling Differnt URLS / Routes
 // -------------------------------
 
-const express = require('express');
+// const express = require('express');
 
-const app = express();
+// const app = express();
 
-app.use((req,res,next)=>{
-    console.log("First Middle ware");  
-    next();   
-})
+// app.use('/third',(req,res,next)=>{
+//     console.log("Third  Middle ware");  
+//     res.send('<h1> Third middle ware</h1>');    //Always specify the middleware in descending order
+//     next();   
+// })
 
-app.use((req,res,next)=>{
-    console.log("second middle ware");    
-    next();
-    res.send('<h1> Hellow from express</h1>');
-})
+// app.use('/second',(req,res,next)=>{
+//     console.log("second middle ware");    
+//     next();
+//     res.send('<h1> Second Middleware</h1>');
+// })
 
-app.listen(3000)
+// app.use('/',(req,res,next)=>{
+//     console.log("First middle ware");    
+//     next();
+//     res.send('<h1> First Middleware</h1>');
+// })
+// app.use((req,res,next)=>{
+//     console.log("Always middle ware");    
+//     next();
+//     res.send('<h1> Always Middleware</h1>');   //If the path is not set it will always work middleware
+// })
+// app.listen(3000)
+
+
+
+// --------------------------------------------------------------------------
+
+
+
+// Parsing data from Request   &&     Handling only POST request
+// ----------------------------
+
+
+// const express = require('express');
+// const bodyParser = require('body-parser');  //install body parser package and import here
+// const app = express();
+
+// app.use(bodyParser.urlencoded())
+
+// app.get('/add-product',(req,res,next)=>{            //handling only get request
+//     console.log("Third  Middle ware");  
+//     res.send('<h1> Add Product</h1> <form action="/productoutput" method="POST"> <input type="text" name="title" /> <input type="submit" value="submit" /> </form> ');  
+//     next();   
+// })
+
+// app.post('/productoutput',(req,res,next)=>{     //handling only post request
+//     console.log("Form data:" , req.body);  
+//     res.send(req.body)  
+// })
+
+
+
+// app.listen(3000)
+
 
