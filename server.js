@@ -157,6 +157,7 @@ const { response } = require("express")
 // const bodyParser = require('body-parser');  //install body parser package and import here
 // const app = express();
 
+
 // app.use(bodyParser.urlencoded())
 
 // app.get('/add-product',(req,res,next)=>{            //handling only get request
@@ -173,5 +174,66 @@ const { response } = require("express")
 
 
 // app.listen(3000)
+
+
+// ------------------------------------------------------------------------------
+
+
+//handling routes
+//-----------------
+
+// const express = require('express');
+// const app = express();
+// const bodyParser = require('body-parser');
+// const shopRouts = require('./routes/shop');
+
+// app.use(shopRouts);
+
+// app.use(bodyParser.urlencoded())
+// app.listen(3000)
+
+
+// ---------------------------------------------------------------------
+
+
+//screening non-existent route as "404 Page not found" 
+// -------------------------------------------------
+
+// const express = require('express');
+// const app = express();
+// const bodyParser = require('body-parser');
+// const shopRouts = require('./routes/shop');
+
+// app.use(shopRouts);
+
+// app.use((req, res, next) => {
+//     res.status(404).send("<h1>404 page not found</h1>")
+// })
+
+// app.use(bodyParser.urlencoded())
+// app.listen(3000)
+
+
+// -------------------------------------------------------------------------------------------------------
+
+
+
+// Filtering paths/URL prefix
+// --------------------------
+
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const shopRouts = require('./routes/shop');
+
+app.use('/admin',shopRouts);
+
+app.use((req, res, next) => {
+    res.status(404).send("<h1>404 page not found</h1>")
+})
+
+app.use(bodyParser.urlencoded())
+app.listen(3000)
+
 
 
