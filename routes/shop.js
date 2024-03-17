@@ -18,7 +18,7 @@
 // ---------------------------------------------------------------------------------
 
 
-//serving html files/building filepath
+//serving html files/building filepath                        HTML : shop.html
 // ----------------------------------
 
 const express = require('express');
